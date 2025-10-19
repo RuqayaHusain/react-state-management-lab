@@ -4,6 +4,7 @@ const App = () => {
 
   const [team, setTeam] = useState([]);
   const [money, setMoney] = useState(100);
+  const [errorMessage, setErrorMessage] = useState('');
   const [zombieFighters, setZombieFighters] = useState([
     {
       id: 1,
@@ -104,6 +105,7 @@ const App = () => {
       setMoney(money - selectedFighter.price);
     } else {
       console.log('Not enough money');
+      setErrorMessage(`You don't have enough money to add ${selectedFighter.name}`);
     }
   };
 
@@ -122,7 +124,7 @@ const App = () => {
   return (
     <>
       <h1>Zombie Fighters</h1>
-      <h2>Money: {money}</h2>
+      <h2>Money: {money} <span>{errorMessage}</span></h2>
       <h2>Team Strength: {totalStrength}</h2>
       <h2>Team Agility: {totalAgility}</h2>
       <h2>Team</h2>
