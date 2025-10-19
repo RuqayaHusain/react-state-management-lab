@@ -1,4 +1,5 @@
 import { useState } from "react";
+import './App.css';
 
 const App = () => {
 
@@ -124,7 +125,7 @@ const App = () => {
   return (
     <>
       <h1>Zombie Fighters</h1>
-      <h2>Money: {money} <span>{errorMessage}</span></h2>
+      <h2>Money: {money} <span className="error-msg">{errorMessage}</span></h2>
       <h2>Team Strength: {totalStrength}</h2>
       <h2>Team Agility: {totalAgility}</h2>
       <h2>Team</h2>

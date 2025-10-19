@@ -14,3 +14,8 @@ li {
   border: whitesmoke 3px solid;
   border-radius: 8px;
 }
+
+.error-msg {
+  font-size: 15px;
+  color: red;
+}
