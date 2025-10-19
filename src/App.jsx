@@ -86,7 +86,10 @@ const App = () => {
       img: 'https://pages.git.generalassemb.ly/modular-curriculum-all-courses/react-state-management-lab/assets/e41f26.png',
     },
   ]);
+  // use reduce method to calculate the total strength, if array is empty total should be 0
+  const totalStrength = team.reduce((accumulator, currentMember) => accumulator + currentMember.strength, 0);
 
+  
   const handleAddFighter = (selectedFighter) => {
     const NewTotal = money - selectedFighter.price;
     if (NewTotal >= 0) {
@@ -107,7 +110,7 @@ const App = () => {
     <>
       <h1>Zombie Fighters</h1>
       <h2>Money: {money}</h2>
-      <h2>Team Strength: </h2>
+      <h2>Team Strength: {totalStrength}</h2>
       <h2>Team Agility: </h2>
       <h2>Team</h2>
       {
