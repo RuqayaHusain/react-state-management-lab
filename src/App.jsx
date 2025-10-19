@@ -110,18 +110,26 @@ const App = () => {
       <h2>Team Strength: </h2>
       <h2>Team Agility: </h2>
       <h2>Team</h2>
-      <ul>
-        {team.map((teamFighter, index) => (
-          <li key={index}>
-            <img src={teamFighter.img} />
-            <h4>{teamFighter.name}</h4>
-            <p>Price: {teamFighter.price}</p>
-            <p>Strength: {teamFighter.strength}</p>
-            <p>Agility: {teamFighter.agility}</p>
-          </li>
-        ))}
-      </ul>
-
+      {
+        team.length === 0 ?
+          (
+            <p>Pick some team members!</p>
+          ) :
+          (
+            <ul>
+              {
+                team.map((teamFighter, index) => (
+                  <li key={index}>
+                    <img src={teamFighter.img} />
+                    <h4>{teamFighter.name}</h4>
+                    <p>Price: {teamFighter.price}</p>
+                    <p>Strength: {teamFighter.strength}</p>
+                    <p>Agility: {teamFighter.agility}</p>
+                  </li>
+                ))}
+            </ul>
+          )
+      }
       <h2>Fighters</h2>
       <ul>
         {zombieFighters.map((fighter, index) => (
