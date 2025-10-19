@@ -92,8 +92,8 @@ const App = () => {
 
   
   const handleAddFighter = (selectedFighter) => {
-    const NewTotal = money - selectedFighter.price;
-    if (NewTotal >= 0) {
+    const newTotal = money - selectedFighter.price;
+    if (newTotal >= 0) {
       // add new fighter to Team array
       const newTeamArray = [...team, selectedFighter];
       setTeam(newTeamArray);
@@ -105,6 +105,18 @@ const App = () => {
     } else {
       console.log('Not enough money');
     }
+  };
+
+  const handleRemoveFighter = (selectedFighter) => {
+    // remove selected fighter from Team array
+    const newTeamArray = team.filter((iteratorFighter) => iteratorFighter.id !== selectedFighter.id);
+    setTeam(newTeamArray);
+    // add the selected fighter to zombieFighters array
+    const newZombieFightersArray = [...zombieFighters, selectedFighter];
+    setZombieFighters(newZombieFightersArray);
+    // increase money by the price of the removed character
+    const newTotal = money + selectedFighter.price;
+    setMoney(newTotal);
   };
 
   return (
@@ -129,6 +141,7 @@ const App = () => {
                     <p>Price: {teamFighter.price}</p>
                     <p>Strength: {teamFighter.strength}</p>
                     <p>Agility: {teamFighter.agility}</p>
+                    <button onClick={() => handleRemoveFighter(teamFighter)}>Remove</button>
                   </li>
                 ))}
             </ul>
